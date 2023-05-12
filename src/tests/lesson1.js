@@ -4,16 +4,16 @@ import sha256 from 'crypto-js/sha256.js'
 
 const main = () => {
   // 初始化区块链
-  let blockchain = new Blockchain('BitCoin')
+  var blockchain = new Blockchain('BitCoin')
 
   // 创建创世区块
-  let genesisBlock = new Block(blockchain, 'root', 0, 'root')
+  var genesisBlock = new Block(blockchain, 'root', 0, 'root')
 
   // 设置创世区块
   blockchain.genesis = genesisBlock
 
   // 构建区块
-  let newBlock = new Block(
+  var newBlock = new Block(
     blockchain,
     genesisBlock.hash,
     1,
@@ -22,14 +22,14 @@ const main = () => {
 
   blockchain.blocks[newBlock.hash] = newBlock
 
-  let nextBlock = new Block(
+  var nextBlock = new Block(
     blockchain,
     newBlock.hash,
     2,
     sha256(new Date().getTime().toString()).toString(),
   )
 
-  let nextCompetitionBlock = new Block(
+  var nextCompetitionBlock = new Block(
     blockchain,
     newBlock.hash,
     2,
@@ -44,7 +44,7 @@ const main = () => {
 
   console.assert(longestChain.length == 2, 'Block height should be 2')
 
-  let thirdBlock = new Block(
+  var thirdBlock = new Block(
     blockchain,
     nextCompetitionBlock.hash,
     3,
