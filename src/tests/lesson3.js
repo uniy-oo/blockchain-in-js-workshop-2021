@@ -28,7 +28,7 @@ const main = () => {
   )
 
   console.assert(
-    newBlock.coinbaseBeneficiary == miner,
+    newBlock.coinbaseBeneficiary == minerntuaegt ,
     'Error: Block niner public key error',
   )
 
